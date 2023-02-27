@@ -5,6 +5,7 @@ import CheckButton from "react-validation/build/button";
 import { useNavigate, useParams } from "react-router-dom"
 import AuthService from "../Services/auth.service";
 import './Login.css';
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -94,6 +95,25 @@ class Login extends Component {
 
   }
 
+  showPassword=(event)=>{
+    console.log("hillo show password clicked ");
+    var p1=document.getElementById("password");
+    const type=p1.getAttribute("type");
+  
+    
+    if(type=="password"){
+      p1.setAttribute("type","text");
+     
+      event.target.innerHTML="hide";
+    }else{
+      p1.setAttribute("type","password");
+     
+      event.target.innerHTML="show";
+    }
+  }
+
+
+  
   render() {
     
     
@@ -132,11 +152,16 @@ class Login extends Component {
                 type="password"
                 className="form-control"
                 name="password"
+                id="password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
             </div>
+
+            <div id="hide1" className="blue">
+                          <Button variant="dark" size="sm"><span id="span-hide" onClick={this.showPassword}>show</span></Button>
+                    </div>
 
             <div className="form-group text-center">
 

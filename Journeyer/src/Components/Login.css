@@ -5,7 +5,11 @@ label {
 
  #hide{
    display: block;
-   margin-top: 35px;
+   margin-top: 40px;
+ }
+ #hide1{
+   display: block;
+   margin-top: 10px;
  }
  
  .ccard-container.ccard {
