@@ -183,7 +183,7 @@ showPassword=(event)=>{
           </div>
           <div className="col-6">
             <img
-              src="/Images/Logo_img.svg"
+              src="/Images/Logo_img.png"
               alt="profile-img"
               className="cprofile-img-card img-fluid"
             />

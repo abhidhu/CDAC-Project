@@ -102,7 +102,7 @@ class Login extends Component {
       <div className="col-md-12 ">
         <div className="ccard ccard-container mb-5">
           <img
-            src="/Images/Logo_img.svg"
+            src="/Images/Logo_img.png"
             alt="profile-img"
             className="cprofile-img-card img-fluid"
           />
