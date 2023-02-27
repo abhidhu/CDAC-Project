@@ -10,7 +10,7 @@ function Footer() {
                 <div className ="container">
                     <div className ="row">
                         <div className ="col-md-2">
-                            <img src="/Images/Logo_img.svg" width="150" height="auto" className ="ms-md-5 img-fluid" />
+                            <img src="/Images/Logo_img.png" width="150" height="auto" className ="ms-md-5 img-fluid" />
                             <p className="textbottom">
                                 <b>Journeyer</b>
                             </p>

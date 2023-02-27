@@ -45,7 +45,7 @@ function About() {
 
                         </div>
                         <div className="col-md-4">
-                            <img src="Images/Logo_img.svg" className="bd-placeholder-img rounded-circle" width="140" height="140" />
+                            <img src="Images/Logo_img.png" className="bd-placeholder-img rounded-circle" width="140" height="140" />
                             <h2>Why Journeyer</h2>
                             <p className="justify">One Line Tour Price, Always All Inclusive. No Additions - No Confusion, No Hidden Costs.
                                 No Advertising Gimmicks. No Optional Sightseeing. No Extra Expenses to be paid on tour.

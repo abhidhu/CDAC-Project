@@ -88,7 +88,7 @@ class Header extends Component {
                 {/*Navbar*/}
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="nav_bar">
                     <div className="container-fluid">
-                        <Link className="navbar-brand fw-bold img-fluid fs-4 mt-1" to="/" style={{ color: "rgb(245, 232, 51)" }} ><img src="/Images/Logo_img.svg"
+                        <Link className="navbar-brand fw-bold img-fluid fs-4 mt-1" to="/" style={{ color: "rgb(245, 232, 51)" }} ><img src="/Images/Logo_img.png"
                             width="60" height="auto" />Journeyer</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
