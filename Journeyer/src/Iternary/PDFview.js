@@ -17,7 +17,9 @@ function PDFview() {
     useEffect(() => {
         fetch("http://localhost:8080/api/auth/customer/" + cid)
             .then(res => res.json())
-            .then((result) => { setCustomer(result); }
+            .then((result) => { setCustomer(result);
+            console.log(result);
+            }
             );
 
     }, []);
@@ -168,7 +170,8 @@ function PDFview() {
         fetch("http://localhost:8080/booking/", {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
-            body: demo,
+           body: demo,
+           
         }).then(r => { console.log(r.json()) })
     }
 

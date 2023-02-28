@@ -63,6 +63,15 @@ class Register extends Component {
     }
   }
 
+  // onChangegender(e) {
+  //   console.log("change gender");
+  //   console.log(e.target.value);
+  //   let ge=e.target.value;
+  //   this.setState({
+  //     gender: ge
+  //   });
+  // }
+
 
   handleRegister=(e) =>{
     e.preventDefault();
@@ -72,7 +81,7 @@ class Register extends Component {
       message: "",
       successful: false
     });
-
+    console.log(this.state);
     this.form.validateAll();
     if(this.confirm(this.state.comfirmpassword)){
 
