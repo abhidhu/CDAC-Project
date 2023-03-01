@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export function AdminAllUser() {
 
     const allUser = async () => {
         const data = await axios.get("http://localhost:8080/customers");
         setCustomers(data.data);
-        console.log(data.data);
+       // console.log(data.data);
         console.log("hello inside the useeffect initial render");
     }
 
@@ -34,15 +35,15 @@ export function AdminAllUser() {
                 </thead>
 
                 <tbody>
-                    {customers.map((book, i) => (
+                    {customers.map((cust, i) => (
                         <>
                             <tr>
-                                <td>{book.cust_Id}</td>
-                                <td>{book.firstname}</td>
-                                <td>{book.lastname}</td>
-                                <td>{book.email}</td>
-                                <td>{book.mobile}</td>
-                                <td><Button variant="primary" size="sm"><span id="span-hide" >show</span></Button></td>
+                                <td>{cust.cust_Id}</td>
+                                <td>{cust.firstname}</td>
+                                <td>{cust.lastname}</td>
+                                <td>{cust.email}</td>
+                                <td>{cust.mobile}</td>
+                                <td><Link to={"/customer-booking/"+cust.cust_Id} className="nav-link"><Button variant="primary" size="sm"><span id="span-hide" >show</span></Button></Link></td>
 
                             </tr>
                         </>

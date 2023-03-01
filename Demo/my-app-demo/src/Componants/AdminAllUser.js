@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 export function AdminAllUser() {
 
@@ -38,7 +39,7 @@ export function AdminAllUser() {
                                 <td>{cust.firstname}</td>
                                 <td>{cust.lastname}</td>
                                 <td>{cust.email}</td>
-                                <td><Button prop={cust.cust_Id} variant="primary" size="sm"><span id="span-hide" >show</span></Button></td>
+                                <td><Link to={"/amdin-user"}>click</Link></td>
                             </tr>
                         </>
                     ))}

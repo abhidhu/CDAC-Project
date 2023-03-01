@@ -17,6 +17,7 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Profile from './Components/Profile';
 import Admin from './Components/Admin';
+import { AdminUser } from './SubComponent/AdminUser';
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
           <Route path="/book/:bkid/:smid/:cid" element={<Booknow />} />
           <Route path="/view/:bkid/:smid/:cid/" element={<PDFview />} />
           <Route path="About" element={<About />} />
+          <Route path="/customer-booking/:custid"  element={<AdminUser />} />
+
           <Route path="Gallery" element={<Gallery />} />
           <Route path="*" element={<NoPage />} />
       </Routes>
