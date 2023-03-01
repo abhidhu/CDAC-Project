@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import SideBooknow from './SideBooknow';
 import React, { Component }  from 'react';
 import AuthService from '../Services/auth.service';
+import axios from 'axios';
 
 
 function Booknow(props) {
@@ -17,6 +18,9 @@ function Booknow(props) {
     const user = AuthService.getCurrentUser();
 
     useEffect(() => {
+
+
+
         fetch("http://localhost:8080/api/auth/customer/"+user.cust_Id)
             .then(res => res.json())
             .then((result) => { setCustomer(result); }

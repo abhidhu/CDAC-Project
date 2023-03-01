@@ -162,11 +162,39 @@ function PDFview() {
         const bookingdetail = { totalcost, totalgstcost, totalfinalcost, totalpassanger, bookingdate, customerid, packageid }
         setBookingdetails(bookingdetail);
 
+
+        
+        // console.log("Abhijeet Dhumal    ihuhehkj");
+        // console.log(bookingdetail);
+        // console.log("Abhijeet Dhumal    ihuhehkj");
+        // console.log(totalcost);
+        // console.log(totalgstcost);
+        // console.log(totalfinalcost);
+        // console.log(totalpassanger);
+
+
     }
     const handleSubmit = (event) => {
 
+
+        handleChange();
+
+
+        console.log(bookingdetails.totalcost);
+        console.log(bookingdetails.totalfinalcost);
+        console.log(bookingdetails.totalpassanger);
+        console.log(bookingdetails.totalcost);
+        console.log("12346y4gkjnbjbsv");
+        
         let demo = JSON.stringify(bookingdetails);
-        console.log(JSON.parse(demo));
+
+        // let demo = JSON.stringify(bookingdetail);
+        console.log(demo);
+        console.log("1234567890");
+        // console.log(totalcost);
+        // console.log(totalgstcost);
+        // console.log(totalfinalcost);
+        // console.log(totalpassanger);
         fetch("http://localhost:8080/booking/", {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
