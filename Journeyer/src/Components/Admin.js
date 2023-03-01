@@ -1,9 +1,12 @@
+
 import { useEffect, useState, useRef } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import AuthService from '../Services/auth.service';
+import { AdminAllUser } from './AdminAllUser';
+import Alert from 'react-bootstrap/Alert';
 
 
-function Admin(){
+function Admin(props){
 
     const [booking, setBooking] = useState([]);
     const user=AuthService.getCurrentUser();
@@ -109,7 +112,12 @@ function Admin(){
 
                 </div>
 
+                <Alert variant={"primary"}> All user Info</Alert>
+
+                <AdminAllUser/>
             </div>
+
+           
     );
 
 }
