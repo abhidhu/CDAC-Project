@@ -7,7 +7,7 @@ export function AdminUser(props) {
     const { custid } = useParams()
 
     const allUser = async () => {
-        const data = await axios.get(`http://localhost:8080/customer-booking/${custid}`);
+        const data = await axios.get(`http://localhost:8080/Admin/customer-booking/${custid}`);
         setCustomers(data.data);
         console.log(data.data);
         console.log("hello inside the useeffect initial render");

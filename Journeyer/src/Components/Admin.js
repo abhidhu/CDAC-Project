@@ -112,7 +112,20 @@ function Admin(props){
 
                 </div>
 
-                <Alert variant={"primary"}> All user Info</Alert>
+                {/* <Alert variant={"primary"}> All user Info</Alert> */}
+
+
+                            <hr></hr>
+                <div className="container">
+                <div className="row">
+                    <div>
+                    <h2 className="text-warning mt-4">Customer Details</h2>
+                    </div>
+                </div>
+                </div>
+
+
+
 
                 <AdminAllUser/>
             </div>

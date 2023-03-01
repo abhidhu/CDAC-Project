@@ -37,7 +37,7 @@ function App() {
           <Route path="/book/:bkid/:smid/:cid" element={<Booknow />} />
           <Route path="/view/:bkid/:smid/:cid/" element={<PDFview />} />
           <Route path="About" element={<About />} />
-          <Route path="/customer-booking/:custid"  element={<AdminUser />} />
+          <Route path="/Admin/customer-booking/:custid"  element={<AdminUser />} />
 
           <Route path="Gallery" element={<Gallery />} />
           <Route path="*" element={<NoPage />} />

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export function AdminAllUser() {
 
     const allUser = async () => {
-        const data = await axios.get("http://localhost:8080/customers");
+        const data = await axios.get("http://localhost:8080/Admin/customers");
         setCustomers(data.data);
        // console.log(data.data);
         console.log("hello inside the useeffect initial render");
@@ -43,7 +43,7 @@ export function AdminAllUser() {
                                 <td>{cust.lastname}</td>
                                 <td>{cust.email}</td>
                                 <td>{cust.mobile}</td>
-                                <td><Link to={"/customer-booking/"+cust.cust_Id} className="nav-link"><Button variant="primary" size="sm"><span id="span-hide" >show</span></Button></Link></td>
+                                <td><Link to={"/Admin/customer-booking/"+cust.cust_Id} className="nav-link"><Button variant="primary" size="sm"><span id="span-hide" >show</span></Button></Link></td>
 
                             </tr>
                         </>
