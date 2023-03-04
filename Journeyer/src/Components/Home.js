@@ -10,7 +10,9 @@ import React from 'react';
 
 function Home(props) {
 
-    const [tour, setTours] = useState([]);
+
+    const [tour, setTours]= useState([]); 
+    
 
     useEffect(() => {
         fetch("http://localhost:8080/sector/")
@@ -18,6 +20,9 @@ function Home(props) {
             .then((result) => { setTours(result); }
             );
     }, []);
+
+   
+
 
     return (
         <div>
@@ -41,11 +46,11 @@ function Home(props) {
                         <div className="container">
 
                             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                                {
+                                { 
                                     tour.map(tor => (
                                         <div className="col" key={tor.sectormasterid}>
                                             <div className="card shadow-sm album_img">
-                                                <Link to={tor.sectorid}><img src={tor.imgpath}
+                                                <Link to={tor.sectorid}><img src={tor.imgpath} 
                                                     className="img-fluid rounded-2 img_all" /></Link>
                                                 <div className="card-body">
                                                     <p className="Album_text">{tor.name}</p>

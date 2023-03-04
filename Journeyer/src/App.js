@@ -1,6 +1,5 @@
-
 import './App.css';
-import React, { Component }  from 'react';
+import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Footer from './Components/Footer';
 import Header from './Components/Header';
@@ -23,7 +22,7 @@ import { AdminUser } from './SubComponent/AdminUser';
 function App() {
   return (
     <>     
-     <Header/>
+     <Header />
       <Routes>
          <Route exact path="/" element={<Home />} />
           <Route path="/:Id" element={<Sector />} />
@@ -31,14 +30,13 @@ function App() {
           
           <Route exact path="/Admin" element={<Admin/>} />
           <Route exact path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register"  element={<Register />} />
           <Route path="/:Id/:Sid" element={<SubSector />} />
           <Route path="/Details/:SSid" element={<Main />} />
           <Route path="/book/:bkid/:smid/:cid" element={<Booknow />} />
           <Route path="/view/:bkid/:smid/:cid/" element={<PDFview />} />
           <Route path="About" element={<About />} />
           <Route path="/Admin/customer-booking/:custid"  element={<AdminUser />} />
-
           <Route path="Gallery" element={<Gallery />} />
           <Route path="*" element={<NoPage />} />
       </Routes>

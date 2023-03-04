@@ -55,27 +55,10 @@ class Register extends Component {
     };
   }
 
-  onChangeState=(event)=>{
-    this.setState({[event.target.name]:event.target.value});
-    if([event.target.name]=="comfirmpassword"){
-        console.log("inside comfirm password");
-        //this.confirm(event.target.value);
-    }
-  }
-
-  // onChangegender(e) {
-  //   console.log("change gender");
-  //   console.log(e.target.value);
-  //   let ge=e.target.value;
-  //   this.setState({
-  //     gender: ge
-  //   });
-  // }
-
+  onChangeState=(event)=>{  this.setState({[event.target.name]:event.target.value}); }
 
   handleRegister=(e) =>{
     e.preventDefault();
-    console.log("hii i am here ");
     console.log(this.state);
     this.setState({
       message: "",
@@ -95,13 +78,13 @@ class Register extends Component {
           this.state.gender,
           this.state.password,
         ).then(
-          response => {
+          (response) => {
             this.setState({
               message: response.data.message,
               successful: true
             });
           },
-          error => {
+          (error) => {
             const resMessage =
               (error.response &&
                 error.response.data &&
@@ -120,14 +103,9 @@ class Register extends Component {
 
     }
   }
-//---------------------------
-
-
-//========
 
 confirm(confirm){
-  // var in=document.getElementById("comfirm_password");
-  // var di=document.getElementById("confirm_pass_div");
+
   var p1=document.getElementById("p1");
   p1.innerHTML="";
   console.log(this.state.password);
@@ -142,8 +120,6 @@ confirm(confirm){
     return false;
   }
 }
-
-//-----------------------
 
 showConfirmPassword=(event)=>{
   var p1=document.getElementById("comfirm_password");
@@ -175,8 +151,6 @@ showPassword=(event)=>{
     event.target.innerHTML="show";
   }
 }
-
-
 
   render() {
     return (

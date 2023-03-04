@@ -3,14 +3,11 @@ import { Component } from "react"
 import './Header.css';
 import AuthService from "../Services/auth.service";
 import EventBus from "../Common/EventBus";
-import { useEffect, useState } from 'react';
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
-        this.logOut = this.logOut.bind(this);
-
         this.state = {
             showAdminBoard: false,
             currentUser: undefined,
@@ -36,7 +33,7 @@ class Header extends Component {
         EventBus.remove("logout");
     }
 
-    logOut() {
+    logOut=()=>{
         AuthService.logout();
         this.setState({
             showAdminBoard: false,
@@ -44,41 +41,19 @@ class Header extends Component {
         });
     }
 
-    userdetails = function () {
-        const user = AuthService.getCurrentUser();
-        const custid = user.cust_Id;
-        const [customer, setCustomer] = useState([]);
-        useEffect(() => {
-            fetch("http://localhost:8080/api/auth/customer/" + custid)
-                .then(res => res.json())
-                .then((result) => { setCustomer(result); }
-                );
-        }, []);
-    }
+    /*Check letter */
 
-
-    // const [isLogin, setIslogin] = useState(false)
-
-    // const togglebutton = (event) => {
-
-
-    //     if (event.target.value == "Login")
-    //         setIslogin(true)
-    //     else
-    //         setIslogin(false);
+    // userdetails = function () {
+    //     const user = AuthService.getCurrentUser();
+    //     const custid = user.cust_Id;
+    //     const [customer, setCustomer] = useState([]);
+    //     useEffect(() => {
+    //         fetch("http://localhost:8080/api/auth/customer/" + custid)
+    //             .then(res => res.json())
+    //             .then((result) => { setCustomer(result); }
+    //             );
+    //     }, []);
     // }
-
-
-    // const AuthButton = (props) => {
-    //     let { isLoggedIn, ondatachange } = props;
-    //     if (isLoggedIn) {
-    //         return <button type="button" name="logoutbtn" className="btn btn-warning ms-1 mt-sm-2 mb-sm-2" data-bs-toggle="modal"
-    //         data-bs-target="#LogoutModal" value="Logout" onClick={ondatachange} >Logout</button>;
-    //     } else {
-    //         return <button type="button" name="loginbtn" className="btn btn-warning ms-1 mt-sm-2 mb-sm-2" data-bs-toggle="modal"
-    //         data-bs-target="#LoginModal" value="Login" onClick={ondatachange} >Login</button>;
-    //     }
-    // };
 
     render() {
         const { currentUser, showAdminBoard } = this.state;
@@ -114,20 +89,8 @@ class Header extends Component {
                                 </li>
                                 <li className="nav-item nav_name">
                                     <a href="#contactus" className="nav-link"><b>Contact us</b></a>
-                                    {/*<Link className="nav-link" to="#contactus"><b>Contact Us</b></Link>*/}
-                                </li>
-                                {/* {showAdminBoard && (
-                                    <li className="nav-item nav_name">
-                                        <Link className="nav-link" to="/admin"><b>Admin</b></Link>
-                                    </li>
-                                )}
 
-                                {currentUser && (
-                                    <li className="nav-item">
-                                        <Link to={"/"} className="nav-link">
-                                        </Link>
-                                    </li>
-                                )} */}
+                                </li>
                             </ul>
 
                             {currentUser ? (
@@ -144,9 +107,6 @@ class Header extends Component {
                                                 <button className="btn btn-warning mt-2"><i class="bi bi-person-lines-fill size"></i></button>
                                             </Link>
                                         </li>)}
-                                        {/* <Link to={"/profile"} className="nav-link">
-                                            <button className="btn btn-warning mt-2"><i class="bi bi-person-lines-fill size"></i></button>
-                                        </Link> */}
                                     </li>
                                     <li className="nav-item">
                                         <a href="/" className="nav-link" onClick={this.logOut}>
@@ -170,11 +130,6 @@ class Header extends Component {
                                 </div>
                             )}
                         </div>
-
-                        {/* <button type="button" name="loginbtn" className="btn btn-warning ms-1 mt-sm-2 mb-sm-2" data-bs-toggle="modal"
-                            data-bs-target="#LoginModal"  >Login</button>
-                        <button type="button" name="signupbtn" className="btn btn-warning ms-1 mt-sm-2 mb-sm-2" data-bs-toggle="modal"
-                            data-bs-target="#SignupModal">SignUp</button> */}
                     </div>
                 </nav >
             </div >
