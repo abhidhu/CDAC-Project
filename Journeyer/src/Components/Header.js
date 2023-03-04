@@ -73,22 +73,22 @@ class Header extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mt-0 mb-lg-0">
                                 <li className="nav-item nav_name">
-                                    <Link className="nav-link active" to="/"><b>Home</b></Link>
+                                    <Link className="nav-link active" to="/"><i className="fa-solid fa-house-user"></i> <b> Home</b></Link>
                                 </li>
                                 <li className="nav-item nav_name">
 
-                                    <Link className="nav-link" to="/about"><b>About</b></Link>
+                                    <Link className="nav-link" to="/about"><i className="fa-solid fa-child-reaching"></i><b> About</b></Link>
                                 </li>
                                 <li className="nav-item nav_name">
 
-                                    <Link className="nav-link" to="/#Tour"><b>Tours</b></Link>
+                                    <Link className="nav-link" to="/#Tour"><i className="fa-sharp fa-solid fa-plane-departure"></i><b> Tours</b></Link>
                                 </li>
                                 <li className="nav-item nav_name">
-                                    <Link className="nav-link" to="/Gallery"><b>Gallery</b></Link>
+                                    <Link className="nav-link" to="/Gallery"><i className="fa-brands fa-envira"></i><b> Gallery</b></Link>
 
                                 </li>
                                 <li className="nav-item nav_name">
-                                    <a href="#contactus" className="nav-link"><b>Contact us</b></a>
+                                    <a href="#contactus" className="nav-link"><i className="fa-solid fa-phone"></i><b> Contact us</b></a>
 
                                 </li>
                             </ul>
@@ -118,13 +118,13 @@ class Header extends Component {
                                 <div className="navbar-nav ml-auto">
                                     <li className="nav-item">
                                         <Link to={"/login"} className="nav-link">
-                                            <button className="btn btn-warning mt-sm-2 mb-sm-2">Login</button>
+                                            <button className="btn btn-warning mt-sm-2 mb-sm-2"><i className="fas fa-user"></i> Login</button>
                                         </Link>
                                     </li>
 
                                     <li className="nav-item">
                                         <Link to={"/register"} className="nav-link">
-                                            <button className="btn btn-warning mt-sm-2 mb-sm-2">Sign Up</button>
+                                            <button className="btn btn-warning mt-sm-2 mb-sm-2"><i className="fa-solid fa-user-plus"></i> Sign Up</button>
                                         </Link>
                                     </li>
                                 </div>
