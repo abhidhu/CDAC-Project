@@ -110,7 +110,7 @@ class Header extends Component {
                                     </li>
                                     <li className="nav-item">
                                         <a href="/" className="nav-link" onClick={this.logOut}>
-                                            <button className="btn btn-warning mt-sm-2 mb-sm-2">Logout</button>
+                                            <button className="btn btn-warning mt-sm-2 mb-sm-2"><i class="fa-solid fa-user-minus"></i> Logout</button>
                                         </a>
                                     </li>
                                 </div>
