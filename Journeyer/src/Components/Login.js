@@ -24,9 +24,6 @@ const required = value => {
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.onChangeemail = this.onChangeemail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
       email: "",
@@ -37,32 +34,25 @@ class Login extends Component {
     };
   }
 
-  onChangeemail(e) {
+  onChangeemail=(e)=> {
     this.setState({
       email: e.target.value
     });
   }
 
-  onChangePassword(e) {
+  onChangePassword=(e)=> {
     this.setState({
       password: e.target.value
     });
   }
 
-  // onreload = function () {
-  //   let naviagate = useNavigate();
-  //   let user = AuthService.getCurrentUser();
-  //   (user != null) ? (naviagate("/About")) : (window.location.reload());
-  // }
-
-  handleLogin(e) {
+  handleLogin=(e)=> {
 
     e.preventDefault();
     this.setState({
       message: "",
       loading: true
     });
-
 
     this.form.validateAll();
 
@@ -96,11 +86,9 @@ class Login extends Component {
   }
 
   showPassword=(event)=>{
-    console.log("hillo show password clicked ");
     var p1=document.getElementById("password");
     const type=p1.getAttribute("type");
-  
-    
+   
     if(type=="password"){
       p1.setAttribute("type","text");
      
@@ -112,10 +100,7 @@ class Login extends Component {
     }
   }
 
-
-  
   render() {
-    
     
     return (
       

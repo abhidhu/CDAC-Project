@@ -20,25 +20,25 @@ function Passangerform() {
     }
     const handleSubmit = (event) => {
 
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        else {
-            event.preventDefault();
-            let demo = JSON.stringify(Passanger);
-            console.log(JSON.parse(demo));
-            fetch("http://localhost:8080/passangers", {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json' },
-                body: demo
-            }).then(r => {
-                console.log(r.json()); alert(" Passanger has Added Successfully ")
-                window.location.reload();
-            }, error => { alert(error) });
-        }
-        setValidated(true);
+        // const form = event.currentTarget;
+        // if (form.checkValidity() === false) {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        // }
+        // else {
+        //     event.preventDefault();
+        //     let demo = JSON.stringify(Passanger);
+        //     console.log(JSON.parse(demo));
+        //     fetch("http://localhost:8080/passangers", {
+        //         method: 'POST',
+        //         headers: { 'Content-type': 'application/json' },
+        //         body: demo
+        //     }).then(r => {
+        //         console.log(r.json()); alert(" Passanger has Added Successfully ")
+        //         window.location.reload();
+        //     }, error => { alert(error) });
+        // }
+        // setValidated(true);
 
     }
 

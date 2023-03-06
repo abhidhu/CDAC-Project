@@ -19,10 +19,10 @@ function Home(props) {
             .then(res => res.json())
             .then((result) => { setTours(result); }
             );
+            
     }, []);
 
    
-
 
     return (
         <div>

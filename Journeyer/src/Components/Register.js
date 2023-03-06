@@ -39,7 +39,7 @@ const vpassword = value => {
 
 class Register extends Component {
   constructor(props) {
-    super(props);
+   super(props);
 
     this.state = {
       firstname: "",
@@ -64,7 +64,6 @@ class Register extends Component {
       message: "",
       successful: false
     });
-    console.log(this.state);
     this.form.validateAll();
     if(this.confirm(this.state.comfirmpassword)){
 
@@ -104,7 +103,7 @@ class Register extends Component {
     }
   }
 
-confirm(confirm){
+confirm=(confirm)=>{
 
   var p1=document.getElementById("p1");
   p1.innerHTML="";

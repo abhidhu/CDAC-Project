@@ -68,14 +68,14 @@ function PDFview() {
 
     const input = document.getElementById("print");
     function generatepdf() {
-        html2canvas(input).then((canvas) => {
+        // html2canvas(input).then((canvas) => {
 
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF();
-            pdf.addImage(imgData, 'PNG', -50, 5, 310, 250);
-            pdf.save(`Invoice${cid}${bkid}${bookingdate}.pdf`);
+        //     const imgData = canvas.toDataURL("image/png");
+        //     const pdf = new jsPDF();
+        //     pdf.addImage(imgData, 'PNG', -50, 5, 310, 250);
+        //     pdf.save(`Invoice${cid}${bkid}${bookingdate}.pdf`);
 
-        });
+        // });
         handleSubmit();
     }
 
@@ -180,11 +180,11 @@ function PDFview() {
         handleChange();
 
 
-        console.log(bookingdetails.totalcost);
-        console.log(bookingdetails.totalfinalcost);
-        console.log(bookingdetails.totalpassanger);
-        console.log(bookingdetails.totalcost);
-        console.log("12346y4gkjnbjbsv");
+        // console.log(bookingdetails.totalcost);
+        // console.log(bookingdetails.totalfinalcost);
+        // console.log(bookingdetails.totalpassanger);
+        // console.log(bookingdetails.totalcost);
+        // console.log("12346y4gkjnbjbsv");
         
         let demo = JSON.stringify(bookingdetails);
 
