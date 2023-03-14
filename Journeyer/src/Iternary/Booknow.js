@@ -22,6 +22,7 @@ function Booknow(props) {
 
 
         fetch("http://localhost:8080/api/auth/customer/"+user.cust_Id)
+       // fetch("http://ec2-3-110-193-69.ap-south-1.compute.amazonaws.com/api/auth/customer/"+user.cust_Id)
             .then(res => res.json())
             .then((result) => { setCustomer(result); }
             );
@@ -65,7 +66,7 @@ function Booknow(props) {
             <div className="row">
                 <div className="col-1">
 
-                    <img src="/Images/Logo_img.svg" width="100" height="auto" />
+                    <img src="/Images/Logo_img.png" width="100" height="auto" />
                 </div>
                 <div className="col-11 mt-3">
                     <div >

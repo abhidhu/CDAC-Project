@@ -20,25 +20,27 @@ function Passangerform() {
     }
     const handleSubmit = (event) => {
 
-        // const form = event.currentTarget;
-        // if (form.checkValidity() === false) {
-        //     event.preventDefault();
-        //     event.stopPropagation();
-        // }
-        // else {
-        //     event.preventDefault();
-        //     let demo = JSON.stringify(Passanger);
-        //     console.log(JSON.parse(demo));
-        //     fetch("http://localhost:8080/passangers", {
-        //         method: 'POST',
-        //         headers: { 'Content-type': 'application/json' },
-        //         body: demo
-        //     }).then(r => {
-        //         console.log(r.json()); alert(" Passanger has Added Successfully ")
-        //         window.location.reload();
-        //     }, error => { alert(error) });
-        // }
-        // setValidated(true);
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        else {
+            event.preventDefault();
+            let demo = JSON.stringify(Passanger);
+            console.log(JSON.parse(demo));
+            
+            fetch("http://localhost:8080/passangers", {
+            //fetch("http://ec2-3-110-193-69.ap-south-1.compute.amazonaws.com//passangers", {
+                method: 'POST',
+                headers: { 'Content-type': 'application/json' },
+                body: demo
+            }).then(r => {
+                console.log(r.json()); alert(" Passanger has Added Successfully ")
+                window.location.reload();
+            }, error => { alert(error) });
+        }
+        setValidated(true);
 
     }
 
@@ -54,6 +56,7 @@ function Passangerform() {
     const [cost, setCost] = useState([]);
     useEffect(() => {
         fetch("http://localhost:8080/cost/" + smid)
+        //fetch("http://ec2-3-110-193-69.ap-south-1.compute.amazonaws.com//cost/" + smid)
             .then(res => res.json())
             .then((result) => { setCost(result); }
             );

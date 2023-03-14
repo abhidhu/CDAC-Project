@@ -68,14 +68,14 @@ function PDFview() {
 
     const input = document.getElementById("print");
     function generatepdf() {
-        // html2canvas(input).then((canvas) => {
+        html2canvas(input).then((canvas) => {
 
-        //     const imgData = canvas.toDataURL("image/png");
-        //     const pdf = new jsPDF();
-        //     pdf.addImage(imgData, 'PNG', -50, 5, 310, 250);
-        //     pdf.save(`Invoice${cid}${bkid}${bookingdate}.pdf`);
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'PNG', -50, 5, 310, 250);
+            pdf.save(`Invoice${cid}${bkid}${bookingdate}.pdf`);
 
-        // });
+        });
         handleSubmit();
     }
 
@@ -212,7 +212,7 @@ function PDFview() {
                         <div className="row">
 
                             <div className="col-5">
-                                <img src="/Images/Logo_img.svg" width="100" height="auto" />
+                                <img src="/Images/Logo_img.png" width="100" height="auto" />
                             </div>
                             <div className="col-7 mt-4 ">
                                 <div >

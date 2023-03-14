@@ -99,7 +99,7 @@ class Register extends Component {
         );
       }
     }else{
-
+      
     }
   }
 
@@ -228,8 +228,6 @@ showPassword=(event)=>{
                         pattern="[0-9]{10}"
                       />
                     </div>
-
-
                   </div>
                   <div className="row">
                     <div className="form-group col-6">

@@ -19,6 +19,7 @@ import Admin from './Components/Admin';
 import { AdminUser } from './SubComponent/AdminUser';
 
 
+
 function App() {
   return (
     <>     
@@ -36,8 +37,9 @@ function App() {
           <Route path="/view/:bkid/:smid/:cid/" element={<PDFview />} />
           <Route path="About" element={<About />} />
           <Route path="/Admin/customer-booking/:custid"  element={<AdminUser />} />
-          <Route path="Gallery" element={<Gallery />} />
+          <Route path="Gallery" element={<Gallery />} /> 
           <Route path="*" element={<NoPage />} />
+         
       </Routes>
       <Footer/>
     </>
