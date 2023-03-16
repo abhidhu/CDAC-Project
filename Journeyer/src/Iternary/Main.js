@@ -5,6 +5,7 @@ import Information from "./Information";
 import { Link } from "react-router-dom";
 import BookingDate from "./BookingDate";
 import React  from 'react';
+import { URL } from "../URL";
 
 function Main() {
 

@@ -9,7 +9,7 @@ import SideBooknow from './SideBooknow';
 import React, { Component }  from 'react';
 import AuthService from '../Services/auth.service';
 import axios from 'axios';
-
+import { URL } from "../URL";
 
 function Booknow(props) {
 
@@ -21,7 +21,7 @@ function Booknow(props) {
 
 
 
-        fetch("http://localhost:8080/api/auth/customer/"+user.cust_Id)
+        fetch(`${URL}/api/auth/customer/`+user.cust_Id)
        // fetch("http://ec2-3-110-193-69.ap-south-1.compute.amazonaws.com/api/auth/customer/"+user.cust_Id)
             .then(res => res.json())
             .then((result) => { setCustomer(result); }

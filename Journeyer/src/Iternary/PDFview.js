@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
+import { URL } from "../URL";
 
 import React from 'react';
 import AuthService from '../Services/auth.service';
@@ -15,7 +16,7 @@ function PDFview() {
     const [customer, setCustomer] = useState([]);
     const { smid, bkid, cid } = useParams();
     useEffect(() => {
-        fetch("http://localhost:8080/api/auth/customer/" + cid)
+        fetch(`${URL}/api/auth/customer/` + cid)
             .then(res => res.json())
             .then((result) => { setCustomer(result);
             console.log(result);
@@ -34,7 +35,7 @@ function PDFview() {
 
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:8080/passanger/${bkid}/${cid}`)
+        fetch(`${URL}/passanger/${bkid}/${cid}`)
             .then(res => res.json())
             .then((result) => { setBooking(result); }
             );

@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/esm/Button';
 import AuthService from '../Services/auth.service';
 import { AdminAllUser } from './AdminAllUser';
 import Alert from 'react-bootstrap/Alert';
+import { URL } from '../URL';
 
 
 function Admin(props){
@@ -11,7 +12,7 @@ function Admin(props){
     const [booking, setBooking] = useState([]);
     const user=AuthService.getCurrentUser();
     useEffect(() => {
-        fetch("http://localhost:8080/allcanceltours/")
+        fetch(`${URL}/allcanceltours/`)
             .then(res => res.json())
             .then((result) => { setBooking(result); }
             );

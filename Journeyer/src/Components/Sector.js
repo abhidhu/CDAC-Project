@@ -6,14 +6,14 @@ import Search from './Search';
 import Album from './Album';
 import { useNavigate } from "react-router-dom"
 import React from 'react';
-
+import { URL } from '../URL';
 
 function Sector() {
 
     const [tour, setTours] = useState([]);
     const { Id } = useParams();
     useEffect(() => {
-        fetch("http://localhost:8080/subsector/" + Id,
+        fetch(`${URL}/subsector/` + Id,
             {
                 headers: {
                     'Content-Type': 'application/json',

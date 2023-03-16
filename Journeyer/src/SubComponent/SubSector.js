@@ -6,13 +6,14 @@ import { useEffect, useState } from 'react';
 import Carousel1 from '../Components/Carousel';
 import Search from '../Components/Search';
 import Album from '../Components/Album';
+import { URL } from '../URL';
 
 
 function SubSector() {
     const [subtour, setSubtours] = useState([]);
     const { Sid, Id} = useParams();
     useEffect(() => {
-        fetch(`http://localhost:8080/subsector/${Sid}`)
+        fetch(`${URL}/subsector/${Sid}`)
             .then(res => res.json())
             .then((result) => { setSubtours(result); }
             );
@@ -20,7 +21,7 @@ function SubSector() {
 
     const [cost, setCost] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:8080/costs/${Sid}`)
+        fetch(`${URL}/costs/${Sid}`)
             .then(res => res.json())
             .then((result) => { setCost(result); }
             );

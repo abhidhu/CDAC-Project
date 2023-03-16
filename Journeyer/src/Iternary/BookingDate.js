@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import './Book.css';
 import React from 'react';
 import AuthService from '../Services/auth.service'
+import { URL } from "../URL";
 
 function BookingDate() {
 
     const [pack, setPackage] = useState([]);
     const { SSid, cid } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:8080/package/${SSid}`)
+        fetch(`${URL}/package/${SSid}`)
             .then(res => res.json())
             .then((result) => { setPackage(result); }
             );

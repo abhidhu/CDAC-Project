@@ -2,20 +2,22 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import { useNavigate, useParams } from 'react-router-dom';
 import React  from 'react';
+import { URL } from "../URL";
+
 function Passangerbooking() {
 
     const [booking, setBooking] = useState([]);
     const { smid, bkid, cid } = useParams();
     let navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:8080/passanger/${bkid}/${cid}`)
+        fetch(`${URL}/passanger/${bkid}/${cid}`)
             .then(res => res.json())
             .then((result) => { setBooking(result); }
             );
     }, []);
 
     const handledelete = (passid) => {
-        fetch("http://localhost:8080/delete/" + passid, {
+        fetch(`${URL}/delete/` + passid, {
             method: 'Delete'
         })
             .then(res => res.json())

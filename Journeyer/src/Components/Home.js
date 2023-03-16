@@ -7,6 +7,7 @@ import Search from './Search';
 import Album from './Album';
 import Marque from './Marque';
 import React from 'react';
+import { URL } from '../URL';
 
 function Home(props) {
 
@@ -15,7 +16,7 @@ function Home(props) {
     
 
     useEffect(() => {
-        fetch("http://localhost:8080/sector/")
+        fetch(`${URL}/sector/`)
             .then(res => res.json())
             .then((result) => { setTours(result); }
             );

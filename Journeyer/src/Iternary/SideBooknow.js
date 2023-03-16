@@ -5,6 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useNavigate, useParams } from "react-router-dom";
 import React  from 'react';
 import Form from 'react-bootstrap/Form'
+import { URL } from "../URL";
 
 import './Book.css';
 import Noofperson from "./Noofperson";
@@ -14,7 +15,7 @@ function SideBooknow() {
     const [pack, setPackage] = useState([]);
     const { bkid, smid, cid, } = useParams()
     useEffect(() => {
-        fetch("http://localhost:8080/packages/" + bkid)
+        fetch(`${URL}/packages/` + bkid)
             .then(res => res.json())
             .then((result) => { setPackage(result); }
             );
@@ -23,14 +24,14 @@ function SideBooknow() {
     const [booking, setBooking] = useState([]);
     
     useEffect(() => {
-        fetch(`http://localhost:8080/passanger/${bkid}/${cid}`)
+        fetch(`${URL}/passanger/${bkid}/${cid}`)
             .then(res => res.json())
             .then((result) => { setBooking(result); }
             );
     }, []);
 
     const canclebooking = (event) => {
-        fetch("http://localhost:8080/canclebooking", {
+        fetch(`${URL}/canclebooking`, {
             method: 'Delete'
 
         })
@@ -140,7 +141,7 @@ function SideBooknow() {
 
                                     <div className="col-6 d-grid gap-2">
                                         <Form >
-                                            <Button className="btn btn-warning mb-2 btn-lg" type="button" onClick={canclebooking}>Cancle</Button>
+                                            <Button className="btn btn-warning mb-2 btn-lg" type="button" onClick={canclebooking}>Cancel</Button>
                                         </Form>
                                     </div>
                                 </div>

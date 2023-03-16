@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import React  from 'react';
+import { URL } from "../URL";
 function Noofperson(){
 
     const [booking, setBooking] = useState([]);
    const { bkid,cid}=useParams();
     useEffect(() => {
-        fetch(`http://localhost:8080/passanger/${bkid}/${cid}`)
+        fetch(`${URL}/passanger/${bkid}/${cid}`)
             .then(res => res.json())
             .then((result) => { setBooking(result); }
             );

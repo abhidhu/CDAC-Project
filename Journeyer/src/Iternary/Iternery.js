@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { useParams } from 'react-router-dom';
 import React  from 'react';
+import { URL } from "../URL";
+
 function Iternery(props) {
 
     const [iternery, setIternery] = useState([]);
     const { SSid } = useParams()
     useEffect(() => {
-        fetch("http://localhost:8080/iternery/" + SSid)
+        fetch(`${URL}/iternery/` + SSid)
             .then(res => res.json())
             .then((result) => { setIternery(result); }
             );
@@ -17,7 +19,7 @@ function Iternery(props) {
     const [pack, setPackage] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/package/" +SSid)
+        fetch(`${URL}/package/` +SSid)
             .then(res => res.json())
             .then((result) => { setPackage(result); }
             );

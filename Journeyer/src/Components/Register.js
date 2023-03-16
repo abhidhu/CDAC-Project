@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import './Login.css'
+import { URL } from '../URL';
 import AuthService from "../Services/auth.service";
 import Button from 'react-bootstrap/Button';
 
@@ -16,6 +17,8 @@ const required = value => {
     );
   }
 };
+
+
 
 const email = value => {
   if (!isEmail(value)) {
@@ -31,7 +34,7 @@ const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
+        The password length must be between 6 and 40.
       </div>
     );
   }
@@ -39,7 +42,7 @@ const vpassword = value => {
 
 class Register extends Component {
   constructor(props) {
-   super(props);
+    super(props);
 
     this.state = {
       firstname: "",
@@ -55,9 +58,9 @@ class Register extends Component {
     };
   }
 
-  onChangeState=(event)=>{  this.setState({[event.target.name]:event.target.value}); }
+  onChangeState = (event) => { this.setState({ [event.target.name]: event.target.value }); }
 
-  handleRegister=(e) =>{
+  handleRegister = (e) => {
     e.preventDefault();
     console.log(this.state);
     this.setState({
@@ -65,7 +68,7 @@ class Register extends Component {
       successful: false
     });
     this.form.validateAll();
-    if(this.confirm(this.state.comfirmpassword)){
+    if (this.confirm(this.state.comfirmpassword)) {
 
       if (this.checkBtn.context._errors.length === 0) {
         AuthService.register(
@@ -98,58 +101,58 @@ class Register extends Component {
           }
         );
       }
-    }else{
-      
+    } else {
+
     }
   }
 
-confirm=(confirm)=>{
+  confirm = (confirm) => {
 
-  var p1=document.getElementById("p1");
-  p1.innerHTML="";
-  console.log(this.state.password);
-  console.log(this.state.comfirmpassword);
-  if(this.state.password==confirm){
-      p1.setAttribute("class","blue");
-      p1.innerHTML="password match";
+    var p1 = document.getElementById("p1");
+    p1.innerHTML = "";
+    console.log(this.state.password);
+    console.log(this.state.comfirmpassword);
+    if (this.state.password == confirm) {
+      p1.setAttribute("class", "blue");
+      p1.innerHTML = "password match";
       return true;
-  }else{
-    p1.setAttribute("class","red");
-    p1.innerHTML="! Those passwords didnt match. Try again."
-    return false;
+    } else {
+      p1.setAttribute("class", "red");
+      p1.innerHTML = "! Those passwords didnt match. Try again."
+      return false;
+    }
   }
-}
 
-showConfirmPassword=(event)=>{
-  var p1=document.getElementById("comfirm_password");
-  const type=p1.getAttribute("type");
-  if(type=="password"){
-    p1.setAttribute("type","text");
-    
-    event.target.innerHTML="hide";
-  }else{
-    p1.setAttribute("type","password");
-   
-    event.target.innerHTML="show";
+  showConfirmPassword = (event) => {
+    var p1 = document.getElementById("comfirm_password");
+    const type = p1.getAttribute("type");
+    if (type == "password") {
+      p1.setAttribute("type", "text");
+
+      event.target.innerHTML = "hide";
+    } else {
+      p1.setAttribute("type", "password");
+
+      event.target.innerHTML = "show";
+    }
   }
-}
 
-showPassword=(event)=>{
-  console.log("hillo show password clicked ");
-  var p1=document.getElementById("password");
-  const type=p1.getAttribute("type");
+  showPassword = (event) => {
+    console.log("hillo show password clicked ");
+    var p1 = document.getElementById("password");
+    const type = p1.getAttribute("type");
 
-  
-  if(type=="password"){
-    p1.setAttribute("type","text");
-   
-    event.target.innerHTML="hide";
-  }else{
-    p1.setAttribute("type","password");
-   
-    event.target.innerHTML="show";
+
+    if (type == "password") {
+      p1.setAttribute("type", "text");
+
+      event.target.innerHTML = "hide";
+    } else {
+      p1.setAttribute("type", "password");
+
+      event.target.innerHTML = "show";
+    }
   }
-}
 
   render() {
     return (
@@ -185,18 +188,22 @@ showPassword=(event)=>{
                       <Input
                         type="text"
                         className="form-control"
-                        name="firstname"
+                        name="firstname" pattern="[a-z,A-Z]{3,50}"
                         value={this.state.firstname}
                         onChange={this.onChangeState}
                         validations={[required]}
                       />
+                       
+
+
+
                     </div>
                     <div className="form-group text-black col-6">
                       <label htmlFor="lastname">Last Name</label>
                       <Input
                         type="text"
                         className="form-control"
-                        name="lastname"
+                        name="lastname" pattern="[a-z,A-Z]{3,50}"
                         value={this.state.lastname}
                         onChange={this.onChangeState}
                         validations={[required]}
@@ -210,7 +217,7 @@ showPassword=(event)=>{
                       <Input
                         type="text"
                         className="form-control"
-                        name="email"
+                        name="email" var email="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
                         value={this.state.email}
                         onChange={this.onChangeState}
                         validations={[required, email]}
@@ -225,9 +232,11 @@ showPassword=(event)=>{
                         value={this.state.mobile}
                         onChange={this.onChangeState}
                         validations={[required]}
-                        pattern="[0-9]{10}"
+                        pattern="^[6-9]\d{9}$"
                       />
                     </div>
+
+
                   </div>
                   <div className="row">
                     <div className="form-group col-6">
@@ -280,13 +289,13 @@ showPassword=(event)=>{
                     </div>
 
                     <div id="hide" className="form-group col-2 blue">
-                          {/* <input className="blue" type="button" value="show" /> */}
-                          {/* <Button  variant="dark"></Button> */}
-                          <Button variant="primary" size="sm"><span id="span-hide" onClick={this.showPassword}>show</span></Button>
+                      {/* <input className="blue" type="button" value="show" /> */}
+                      {/* <Button  variant="dark"></Button> */}
+                      <Button variant="primary" size="sm"><span id="span-hide" onClick={this.showPassword}>show</span></Button>
                     </div>
 
 
-                    { <div id="confirm_pass_div" className="form-group col-4">
+                    {<div id="confirm_pass_div" className="form-group col-4">
                       <label htmlFor="comfirmpassword">Comfirm Password</label>
                       <Input
                         type="password"
@@ -298,12 +307,12 @@ showPassword=(event)=>{
                         onChange={this.onChangeState}
                       />
                       <p id="p1" className="blue"></p>
-                    </div> }
-                  
+                    </div>}
+
                     <div id="hide" className="form-group col-2 blue">
-                          {/* <input className="blue" type="button" value="show" /> */}
-                          {/* <Button  variant="dark"></Button> */}
-                          <Button variant="primary" size="sm"><span id="span-hide" onClick={this.showConfirmPassword}>show</span></Button>
+                      {/* <input className="blue" type="button" value="show" /> */}
+                      {/* <Button  variant="dark"></Button> */}
+                      <Button variant="primary" size="sm"><span id="span-hide" onClick={this.showConfirmPassword}>show</span></Button>
                     </div>
 
                   </div>
@@ -342,4 +351,4 @@ showPassword=(event)=>{
   }
 }
 
-export default Register;
+export default Register;

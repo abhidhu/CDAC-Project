@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import AuthService from "../Services/auth.service";
 import './Login.css';
 import Button from 'react-bootstrap/Button';
-
+import { URL } from '../URL';
 
 
 const required = value => {
@@ -147,6 +147,11 @@ class Login extends Component {
             <div id="hide1" className="blue">
                           <Button variant="dark" size="sm"><span id="span-hide" onClick={this.showPassword}>show</span></Button>
                     </div>
+
+                    <div>
+                        <p>Forgot your password?</p>
+                        <Link to="/reset-password">Reset it here.</Link>
+                  </div>
 
             <div className="form-group text-center">
 

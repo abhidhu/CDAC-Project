@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import React  from 'react';
+import { URL } from "../URL";
 
 function IterneryCarousel() {
     const [index, setIndex] = useState(0);

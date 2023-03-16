@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import Button from 'react-bootstrap/esm/Button';
 import html2canvas from 'html2canvas';
+import { URL } from '../URL';
 
 function Profile() {
 
@@ -13,7 +14,7 @@ function Profile() {
     const [customer, setCustomer] = useState([]);
     
     useEffect(() => {
-        fetch("http://localhost:8080/api/auth/customer/" + user.cust_Id)
+        fetch(`${URL}/api/auth/customer/` + user.cust_Id)
             .then(res => res.json())
             .then((result) => { setCustomer(result); }
             );
@@ -21,7 +22,7 @@ function Profile() {
     }, []);
     const [pack, setPackage] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8080/package/")
+        fetch(`${URL}/package/`)
             .then(res => res.json())
             .then((result) => { setPackage(result); }
             );
@@ -29,7 +30,7 @@ function Profile() {
 
     const [booking, setBooking] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8080/alltours/" + user.cust_Id)
+        fetch(`${URL}/alltours/` + user.cust_Id)
             .then(res => res.json())
             .then((result) => { setBooking(result); }
             );
@@ -44,7 +45,7 @@ function Profile() {
 
     const handledelete = (passid) => {
 
-        fetch("http://localhost:8080/canceltour/" + passid, {
+        fetch(`${URL}/canceltour/` + passid, {
             method: 'Put',
         }).then(r => {
             console.log(r.json()); alert("Sucessfully Created Request for Cancel Tour.....Wait for Admin to approve");

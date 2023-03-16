@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/esm/Col';
@@ -7,6 +6,7 @@ import Button from 'react-bootstrap/esm/Button';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 import PassangerTable from './PassangerTable';
+import { URL } from "../URL";
 
 function Passangerform() {
 
@@ -29,9 +29,7 @@ function Passangerform() {
             event.preventDefault();
             let demo = JSON.stringify(Passanger);
             console.log(JSON.parse(demo));
-            
-            fetch("http://localhost:8080/passangers", {
-            //fetch("http://ec2-3-110-193-69.ap-south-1.compute.amazonaws.com//passangers", {
+            fetch(`${URL}/passangers`, {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json' },
                 body: demo
@@ -45,18 +43,17 @@ function Passangerform() {
     }
 
 
-   /* const [pack, setPackage] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:8080/packages/" + bkid)
-            .then(res => res.json())
-            .then((result) => { setPackage(result); }
-            );
-    }, []);*/
+    /* const [pack, setPackage] = useState([]);
+     useEffect(() => {
+         fetch("http://localhost:8080/packages/" + bkid)
+             .then(res => res.json())
+             .then((result) => { setPackage(result); }
+             );
+     }, []);*/
 
     const [cost, setCost] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8080/cost/" + smid)
-        //fetch("http://ec2-3-110-193-69.ap-south-1.compute.amazonaws.com//cost/" + smid)
+        fetch(`${URL}/cost/` + smid)
             .then(res => res.json())
             .then((result) => { setCost(result); }
             );
@@ -99,15 +96,18 @@ function Passangerform() {
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridFristName" onChange={handleChange}>
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control type="text" name="firstname" placeholder="Enter First Name..." required />
+                            <Form.Control type="text"  pattern="[a-z,A-Z]{3,50}" name="firstname" placeholder="Enter First Name..." required />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Enter valid name</Form.Control.Feedback>
 
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridLastName" onChange={handleChange} >
                             <Form.Label>Last Name</Form.Label>
-                            <Form.Control type="text" name="lastname" placeholder="Enter Last Name..." required />
+                            <Form.Control type="text" name="lastname" placeholder="Enter Last Name..." pattern="[a-z,A-Z]{3,50}" required />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Enter valid name</Form.Control.Feedback>
+
                         </Form.Group>
                         <Form.Group controlId="formGridAddress" onChange={handleChange}>
                             <Form.Label>Address</Form.Label>
@@ -152,7 +152,7 @@ function Passangerform() {
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridFristName" onChange={handleChange}>
                             <Form.Label>Mobile No.</Form.Label>
-                            <Form.Control type="text" name="mobile" placeholder="Enter Mobile No...." pattern="[0-9]{10}" required />
+                            <Form.Control type="text" name="mobile" placeholder="Enter Mobile No...." pattern="[6-9]{1}[0-9]{9}$" required />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             <Form.Control.Feedback type="invalid">Mobile Number Must be 10 Digit</Form.Control.Feedback>
                         </Form.Group>
@@ -185,8 +185,9 @@ function Passangerform() {
                     <Row className="mb-3">
                         <Form.Group as={Col} name="city" controlId="formGridCity" onChange={handleChange}>
                             <Form.Label>City</Form.Label>
-                            <Form.Control type="text" name="city" required />
+                            <Form.Control type="text" name="city" pattern="^[a-zA-Z]+$" required />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Enter valid city name</Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridState" name="state" onChange={handleChange}>
@@ -250,8 +251,9 @@ function Passangerform() {
 
                         <Form.Group as={Col} name="passport" controlId="formGridZip" onChange={handleChange}>
                             <Form.Label>Passport Number</Form.Label>
-                            <Form.Control type="text" name="passport" />
+                            <Form.Control type="text" name="passport" pattern = "^[A-PR-WYa-pr-wy][1-9]\\d\\s?\\d{4}[1-9]$"/>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Enter valid passport number</Form.Control.Feedback>
                         </Form.Group>
                     </Row>
                     <Row>
@@ -296,4 +298,4 @@ function Passangerform() {
     );
 }
 
-export default Passangerform;
+export default Passangerform;

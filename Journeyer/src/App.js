@@ -17,6 +17,7 @@ import Register from './Components/Register';
 import Profile from './Components/Profile';
 import Admin from './Components/Admin';
 import { AdminUser } from './SubComponent/AdminUser';
+import ForgotPassword from './Components/ForgotPassword';
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/view/:bkid/:smid/:cid/" element={<PDFview />} />
           <Route path="About" element={<About />} />
           <Route path="/Admin/customer-booking/:custid"  element={<AdminUser />} />
+          <Route path="/reset-password"  element={<ForgotPassword/>} />
           <Route path="Gallery" element={<Gallery />} /> 
           <Route path="*" element={<NoPage />} />
          

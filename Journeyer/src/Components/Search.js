@@ -2,6 +2,7 @@ import './Search.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { URL } from '../URL';
 
 function Search() {
 
@@ -29,7 +30,7 @@ function Search() {
         setEnddate(value);
     }
     useEffect(() => {
-        fetch(`http://localhost:8080/package`)
+        fetch(`${URL}/package`)
             .then(res => res.json())
             .then((result) => { setPackage(result); }
             );
@@ -60,7 +61,7 @@ function Search() {
 
     const [cost, setCost] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8080/findcost/")
+        fetch(`${URL}/findcost/`)
             .then(res => res.json())
             .then((result) => { setCost(result); }
             );

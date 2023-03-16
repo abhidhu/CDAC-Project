@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import React  from 'react';
-
+import { URL } from "../URL";
 
 function Cost() {
 
     const [cost, setCost] = useState([]);
     const { SSid } = useParams();
     useEffect(() => {
-        fetch("http://localhost:8080/cost/" + SSid)
+        fetch(`${URL}/cost/` + SSid)
             .then(res => res.json())
             .then((result) => { setCost(result); }
             );

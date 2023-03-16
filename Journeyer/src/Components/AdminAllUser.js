@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { URL } from '../URL';
 
 export function AdminAllUser() {
 
     const allUser = async () => {
-        const data = await axios.get("http://localhost:8080/Admin/customers");
+        const data = await axios.get(`${URL}/Admin/customers`);
         setCustomers(data.data);
        // console.log(data.data);
         console.log("hello inside the useeffect initial render");
